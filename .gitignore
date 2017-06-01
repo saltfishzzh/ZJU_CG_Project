@@ -1,3 +1,11 @@
+#our project files
+packages/
+.vs/
+*.sln
+*.vcxproj
+*.filters
+
+
 #################
 ## Eclipse
 #################
