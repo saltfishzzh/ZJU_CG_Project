@@ -4,7 +4,7 @@ packages/
 *.sln
 *.vcxproj
 *.filters
-
+*.dll
 
 #################
 ## Eclipse
