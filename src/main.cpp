@@ -1,5 +1,7 @@
 #include <iostream>
 
+
+
 // GLEW
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -15,8 +17,10 @@
 #include "Triangle.h"
 #include "Rectangle.h"
 #include "Grid.h"
+#include "Mesh.h"
 
 #include <array>
+
 
 // Window dimensions
 const GLuint WIDTH = 1200, HEIGHT = 900;
@@ -81,7 +85,7 @@ int main() {
 
 	// Camera matrix
 	glm::mat4 View = glm::lookAt(
-		glm::vec3(0, -10, 15), // Camera is at (4,3,3), in World Space
+		glm::vec3(0, -50, 75), // Camera is at (4,3,3), in World Space
 		glm::vec3(0, 0, 0), // and looks at the origin
 		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)   
 		
@@ -100,6 +104,9 @@ int main() {
 	};
 	Grid r1 = Grid();
 	Rectangle r2 = Rectangle(vs5);
+
+	// model
+	Mesh *mesh = new Mesh("C:/Users/zzx20/Documents/git/ZJU_CG_Project/src/checkers.obj");
 	// Game loop
 	while (!glfwWindowShouldClose(window)) {
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
@@ -126,9 +133,10 @@ int main() {
 			10.0, -5.0, 0.0,
 			10.0, 5.0, 0.0
 		};*/
-		
+		mesh->render();
 		//r1.draw(MVP);
 		r1.draw(MVP);
+
 
 		//std::array<GLfloat, 9> vs1 = { -1.0f, 100.0f, 0.0f, // Left
 		//								1.0f, -1.0f, 0.0f, // Right
